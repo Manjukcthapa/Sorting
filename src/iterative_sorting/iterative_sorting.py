@@ -24,17 +24,17 @@ print(selection_sort ([11, 33, 2, 45, 6, 5]))
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
-        # n = length of the array
-    n = len(arr)
+    length = len(arr) -1
+    sorted = False
 
-    # For every item in the array
-    for i in range(n):
-        # last item in range
-        for j in range(0, n-i-1):
-            # traverse the array from begging to end
-            # and swap out if the element found is greater than the next element
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+    while not sorted:
+        sorted = True
+        for i in range(length):
+            if arr[i] > arr [i+1]:
+                sorted = False
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+
+  
     return arr
 print(bubble_sort([5,2,1,9,0,4,6]))
    
