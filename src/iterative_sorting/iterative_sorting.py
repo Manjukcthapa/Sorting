@@ -11,12 +11,23 @@ def selection_sort( arr ):
                 smallest_index = number
 
 
-
         # TO-DO: swap
+          # Swap the two values so the larger value is on the right
         arr[i], arr[smallest_index] = arr[smallest_index], arr[i]
 
     return arr
-print(selection_sort ([11, 33, 2, 45, 6, 5]))
+   
+print(selection_sort ([5,9,1,2,7,0]))
+# 5 is the minimum
+# 5<9: nothing happens
+# 5>1: 1 is new minimum
+# 1<2: nothing happens
+# 1<7: nothing happens
+# 1>0: 0 is the new minimum
+# Swap 0 and 5
+# alist =  [0,9,1,2,7,5]
+
+print(selection_sort ([35, 3, 34, 65, 2, 5]))
 
 
 
@@ -24,19 +35,27 @@ print(selection_sort ([11, 33, 2, 45, 6, 5]))
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
-    length = len(arr) -1
-    sorted = False
-
-    while not sorted:
-        sorted = True
-        for i in range(length):
-            if arr[i] > arr [i+1]:
-                sorted = False
-                arr[i], arr[i+1] = arr[i+1], arr[i]
+    while True:
+        swaps = 0
+        for i in range(len(arr) - 1):
+            value_1 = arr[i]
+            value_2 = arr[i+1]
+            if arr[i+1] < arr[i]:
+                arr[i] = value_2
+                arr[i+1] = value_1
+                swaps += 1
+        if swaps == 0:
+            break
 
   
     return arr
-print(bubble_sort([5,2,1,9,0,4,6]))
+# print(bubble_sort([6,8,1,3,0,5]))
+# 0 - 6<8 (no swap) - [6,8,1,3,0,5]
+# 1 - 8>1 (swap) - [6,1,8,3,0,5]
+# 2 - 8>3 (swap) - [6,1,3,8,0,5]
+# 3 - 8>0 (swap) - [6,1,3,0,8,5]
+# 4 - 8>5 (swap) - [6,1,3,0,5,8]
+# 8 is in its correct place
    
 
 # STRETCH: implement the Count Sort function below
